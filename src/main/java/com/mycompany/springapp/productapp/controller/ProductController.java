@@ -23,7 +23,6 @@ public class ProductController {
     @Value("${spring.datasource.username}")
     String dbUser;
 
-
     @Autowired
     private ProductService ps;
     @GetMapping(value ="/products")
