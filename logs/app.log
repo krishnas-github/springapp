@@ -1,0 +1,18 @@
+2021-06-20 21:03:06,308 INFO com.mycompany.springapp.SpringappApplication [main] hello world info
+2021-06-20 21:03:06,333 WARN com.mycompany.springapp.SpringappApplication [main] hello world warn
+2021-06-20 21:03:06,333 ERROR com.mycompany.springapp.SpringappApplication [main] hello world error
+2021-06-20 21:08:11,743 INFO com.mycompany.springapp.SpringappApplication [main] hello world info
+2021-06-20 21:08:11,778 WARN com.mycompany.springapp.SpringappApplication [main] hello world warn
+2021-06-20 21:08:11,778 ERROR com.mycompany.springapp.SpringappApplication [main] hello world error
+2021-06-20 21:13:36,083 INFO com.mycompany.springapp.SpringappApplication [main] hello world info
+2021-06-20 21:13:36,098 WARN com.mycompany.springapp.SpringappApplication [main] hello world warn
+2021-06-20 21:13:36,098 ERROR com.mycompany.springapp.SpringappApplication [main] hello world error
+2021-06-20 21:17:25,823 INFO com.mycompany.springapp.SpringappApplication [main] hello world info
+2021-06-20 21:17:25,834 WARN com.mycompany.springapp.SpringappApplication [main] hello world warn
+2021-06-20 21:17:25,834 ERROR com.mycompany.springapp.SpringappApplication [main] hello world error
+2021-06-20 21:18:05,968 INFO com.mycompany.springapp.SpringappApplication [main] hello world info
+2021-06-20 21:18:05,983 WARN com.mycompany.springapp.SpringappApplication [main] hello world warn
+2021-06-20 21:18:05,983 ERROR com.mycompany.springapp.SpringappApplication [main] hello world error
+2021-06-20 21:18:10,628 INFO com.mycompany.springapp.SpringappApplication [main] Starting SpringappApplication using Java 1.8.0_291 on KRISHNA with PID 8340 (Y:\Javalearning\springapp\springapp\target\classes started by krishna in Y:\Javalearning\springapp\springapp)
+2021-06-20 21:18:10,633 INFO com.mycompany.springapp.SpringappApplication [main] The following profiles are active: dev
+2021-06-20 21:19:18,737 INFO com.mycompany.springapp.SpringappApplication [main] Started SpringappApplication in 71.433 seconds (JVM running for 75.616)

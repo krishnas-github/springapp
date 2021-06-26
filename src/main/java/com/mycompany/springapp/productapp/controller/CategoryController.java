@@ -2,6 +2,8 @@ package com.mycompany.springapp.productapp.controller;
 
 import com.mycompany.springapp.productapp.model.CategoryModel;
 import com.mycompany.springapp.productapp.service.CategoryService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,8 +23,14 @@ public class CategoryController {
         return (new ResponseEntity<Iterable<CategoryModel>>(list, HttpStatus.OK));
     }
 
+    @ApiOperation(value = "createCategory",
+                    notes = "This method create a new category")
     @PostMapping(value = "/category")
-    public ResponseEntity<CategoryModel> createCategory(@RequestBody CategoryModel categoryModel){
+    public ResponseEntity<CategoryModel> createCategory(@ApiParam(name ="category",
+                                                type = "categoryModel",
+                                                value = "category data",
+                                                example = "categoryId,categoryName",
+                                                required = true) @RequestBody CategoryModel categoryModel){
         categoryModel = cs.createCategory(categoryModel);
         ResponseEntity<CategoryModel> res = new ResponseEntity<CategoryModel>(categoryModel,HttpStatus.CREATED);
         return res;

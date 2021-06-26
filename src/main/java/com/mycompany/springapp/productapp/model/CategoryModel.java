@@ -1,6 +1,7 @@
 package com.mycompany.springapp.productapp.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,6 +14,11 @@ public class CategoryModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name ="CATEGORY_ID")
     private Long category_Id;
+    @ApiModelProperty(
+            value = "category_name",
+            name = "categoryName",
+            dataType = "String",
+            example ="electronics")
     @Column(name = "CATEGORY_NAME")
     private String categoryName;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "categoryModel", cascade = CascadeType.ALL)//One category will have many product(Reverse mapping)
