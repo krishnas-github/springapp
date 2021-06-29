@@ -45,4 +45,21 @@ public class CategoryService {
         }
         return categoryList;
     }
+
+    public CategoryModel updateCategory(long id, CategoryModel categoryModel){
+        CategoryModel categoryModel1 = null;
+        Optional<CategoryModel> optCategory = cr.findById(id);
+        if(optCategory.isPresent()){
+            CategoryModel categoryModel2 = optCategory.get();
+            if(null!=categoryModel.getCategoryName()){
+                categoryModel2.setCategoryName(categoryModel.getCategoryName());
+            }
+            categoryModel1 = categoryModel2;
+            cr.save(categoryModel2);
+        }
+        else{
+            System.out.println("No Matching category found");
+        }
+        return categoryModel1;
+    }
 }

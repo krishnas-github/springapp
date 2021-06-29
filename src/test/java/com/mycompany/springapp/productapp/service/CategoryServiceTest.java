@@ -59,4 +59,67 @@ public class CategoryServiceTest  {
         Assertions.assertEquals(categories.size(),1);
 
     }
+
+    @Test
+    public void test_deleteCategory(){
+        CategoryModel cm = new CategoryModel();
+        cm.setCategory_Id(1l);
+        cm.setCategoryName("Food");
+
+        Mockito.when(categoryRepository.findById(cm.getCategory_Id())).thenReturn(java.util.Optional.of(cm));
+        Mockito.doNothing().when(categoryRepository).delete(cm);
+
+        CategoryModel categories = (categoryService.deleteCategory(cm.getCategory_Id()));
+        Assertions.assertEquals(cm.getCategory_Id(),categories.getCategory_Id(),"Test failed because category should have an id ");
+
+    }
+    @Test
+    public void test_deleteCategory_categoryNotFound(){
+        CategoryModel cm = new CategoryModel();
+        cm.setCategory_Id(1l);
+        cm.setCategoryName("Food");
+
+        Mockito.when(categoryRepository.findById(cm.getCategory_Id())).thenReturn(java.util.Optional.empty());
+
+        CategoryModel categories = (categoryService.deleteCategory(cm.getCategory_Id()));
+        Assertions.assertNull(categories,"Test failed because category not found ");
+
+    }
+
+    @Test
+    public void test_updateCategory(){
+        CategoryModel cm = new CategoryModel();
+        cm.setCategory_Id((1l));
+        cm.setCategoryName("Cosmetics");
+
+        Mockito.when(categoryRepository.findById(cm.getCategory_Id())).thenReturn(java.util.Optional.of(cm));
+        Mockito.when(categoryRepository.save(cm)).thenReturn(cm);
+        //Mockito.doNothing().when(categoryRepository).save(cm);
+        CategoryModel categories = categoryService.updateCategory(cm.getCategory_Id(),cm);
+        Assertions.assertEquals(cm.getCategoryName(),categories.getCategoryName(),"Test failed because category should have an id ");
+    }
+
+    @Test
+    public void test_updateCategory_categoryNotFound(){
+        CategoryModel cm = new CategoryModel();
+        cm.setCategory_Id((1l));
+        cm.setCategoryName("Cosmetics");
+
+        Mockito.when(categoryRepository.findById(cm.getCategory_Id())).thenReturn(java.util.Optional.empty());
+        CategoryModel categories = categoryService.updateCategory(cm.getCategory_Id(),cm);
+        Assertions.assertNull(categories,"Test failed because category not found ");
+    }
+
+    @Test
+    public void test_searchCategory(){
+        CategoryModel cm = new CategoryModel();
+        cm.setCategory_Id(1l);
+        cm.setCategoryName("Food");
+        List<CategoryModel> listcm = new ArrayList<>();
+        listcm.add(cm);
+        Mockito.when(categoryRepository.findByCategoryName(cm.getCategoryName())).thenReturn(java.util.Optional.of(listcm));
+        List<CategoryModel> categories = categoryService.searchCategory(cm.getCategoryName());
+        Assertions.assertEquals(listcm.get(0).getCategoryName(),categories.get(0).getCategoryName(),"Test Failed because category does not match");
+    }
+
 }

@@ -51,10 +51,11 @@ public class ProductService {
     }
     public List<ProductModel> searchProductByDescription(String description){
         List<ProductModel> productModel2 = null;
-        Optional<ProductModel> searchProduct = pcr.findByDescription(description);
+        Optional<List<ProductModel>> searchProduct = pcr.findByDescription(description);
         if(searchProduct.isPresent()){
-            ProductModel product1 = searchProduct.get();
-            productModel2 = (List<ProductModel>) product1;
+            productModel2 = searchProduct.get();
+            //ProductModel product1 = searchProduct.get();
+            //productModel2 = (List<ProductModel>) product1;
         }
         return productModel2;
         //List<ProductModel> productList = pr.searchProductByDescription(description);

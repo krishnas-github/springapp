@@ -47,6 +47,12 @@ public class CategoryController {
         ResponseEntity<List<CategoryModel>> res = new ResponseEntity<List<CategoryModel>>(categoryModel,HttpStatus.OK);
         return res;
     }
+    @PutMapping(value = "/category/{id}")
+    public ResponseEntity<CategoryModel> updateCategory(@PathVariable("id") long id,@RequestBody CategoryModel categoryModel){
+        categoryModel = cs.updateCategory(id,categoryModel);
+        ResponseEntity<CategoryModel> res = new ResponseEntity<CategoryModel>(categoryModel,HttpStatus.OK);
+        return res;
+    }
 
 
 
