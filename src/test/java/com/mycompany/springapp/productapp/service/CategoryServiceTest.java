@@ -92,11 +92,15 @@ public class CategoryServiceTest  {
         cm.setCategory_Id((1l));
         cm.setCategoryName("Cosmetics");
 
+        CategoryModel cm1 = new CategoryModel();
+        cm1.setCategory_Id((1l));
+        cm1.setCategoryName("Food");
+
         Mockito.when(categoryRepository.findById(cm.getCategory_Id())).thenReturn(java.util.Optional.of(cm));
-        Mockito.when(categoryRepository.save(cm)).thenReturn(cm);
+        Mockito.when(categoryRepository.save(cm)).thenReturn(cm1);
         //Mockito.doNothing().when(categoryRepository).save(cm);
-        CategoryModel categories = categoryService.updateCategory(cm.getCategory_Id(),cm);
-        Assertions.assertEquals(cm.getCategoryName(),categories.getCategoryName(),"Test failed because category should have an id ");
+        CategoryModel categories = categoryService.updateCategory(cm.getCategory_Id(),cm1);
+        Assertions.assertEquals(cm1.getCategoryName(),categories.getCategoryName(),"Test failed because category should have an id ");
     }
 
     @Test

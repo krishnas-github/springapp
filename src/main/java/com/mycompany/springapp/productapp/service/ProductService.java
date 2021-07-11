@@ -1,5 +1,6 @@
 package com.mycompany.springapp.productapp.service;
 
+import com.mycompany.springapp.productapp.exception.BusinessException;
 import com.mycompany.springapp.productapp.model.CategoryModel;
 import com.mycompany.springapp.productapp.model.ProductModel;
 import com.mycompany.springapp.productapp.repository.CategoryRepository;
@@ -22,19 +23,30 @@ public class ProductService {
     private CategoryRepository cr;
 
     //public List<ProductModel> getAllProducts(){
-    public Iterable<ProductModel> getAllProducts(){
+    public Iterable<ProductModel> getAllProducts() throws BusinessException {
         //List<ProductModel> productModelList =pr.getAllProducts();
         Iterable<ProductModel> productModelList = pcr.findAll();
-        return productModelList;
+        if(null!=productModelList){
+            return productModelList;
+        }
+        else{
+            BusinessException pce = new BusinessException("The product list is empty","Nothing to display");
+            throw pce;
+        }
     }
-    public ProductModel createProduct(ProductModel productModel){
+    public ProductModel createProduct(ProductModel productModel) throws BusinessException {
         //productModel = pr.createProduct(productModel);
+        Optional<List<ProductModel>> product = pcr.findByDescription(productModel.getDescription());
+        if(product.isPresent()){
+            BusinessException pce = new BusinessException("This product already exist","Cannot create this product");
+            throw pce;
+        }
         Optional<CategoryModel> optCategory = cr.findById(productModel.getCategoryModel().getCategory_Id());
         productModel.setCategoryModel(optCategory.get());
         productModel = pcr.save(productModel);
         return productModel;
     }
-    public ProductModel deleteProduct(long id){
+    public ProductModel deleteProduct(long id) throws BusinessException{
         ProductModel productModel =null;
         //ProductModel productModel = pr.deleteProduct(id);
         Optional<ProductModel> optProduct = pcr.findById(id);
@@ -44,24 +56,33 @@ public class ProductService {
             pcr.delete(product);
         }
         else{
-            System.out.println("No Matching Product found");
+            BusinessException pce = new BusinessException("This product is not present","Cannot delete");
+            throw pce;
         }
+        /*else{
+            System.out.println("No Matching Product found");
+        }*/
 
         return productModel;
     }
-    public List<ProductModel> searchProductByDescription(String description){
+    public List<ProductModel> searchProductByDescription(String description) throws BusinessException{
         List<ProductModel> productModel2 = null;
         Optional<List<ProductModel>> searchProduct = pcr.findByDescription(description);
         if(searchProduct.isPresent()){
             productModel2 = searchProduct.get();
             //ProductModel product1 = searchProduct.get();
             //productModel2 = (List<ProductModel>) product1;
+            return productModel2;
         }
-        return productModel2;
+        else{
+            BusinessException pce = new BusinessException("No such product is present","Please check the spelling");
+            throw pce;
+        }
+
         //List<ProductModel> productList = pr.searchProductByDescription(description);
         //return productList;
     }
-    public ProductModel updateProduct(long id, ProductModel productModel) {
+    public ProductModel updateProduct(long id, ProductModel productModel) throws BusinessException {
         //productModel = pr.updateProduct(id, productModel);
         //return productModel;
         ProductModel productModel1 =null;
@@ -81,7 +102,8 @@ public class ProductService {
             pcr.save(product);
         }
         else{
-            System.out.println("No Matching Product found");
+            BusinessException pce = new BusinessException("No Matching Product found","Please check the spelling");
+            throw pce;
         }
         return productModel1;
     }

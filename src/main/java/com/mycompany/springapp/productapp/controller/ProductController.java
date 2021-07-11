@@ -1,5 +1,6 @@
 package com.mycompany.springapp.productapp.controller;
 
+import com.mycompany.springapp.productapp.exception.BusinessException;
 import com.mycompany.springapp.productapp.model.ProductModel;
 import com.mycompany.springapp.productapp.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class ProductController {
     private ProductService ps;
     @GetMapping(value ="/products")
     //public ResponseEntity<List<ProductModel>> getAllProducts() {
-    public  ResponseEntity<Iterable<ProductModel>> getAllProducts() {
+    public  ResponseEntity<Iterable<ProductModel>> getAllProducts () throws BusinessException {
         System.out.println(dummyField);
         System.out.println(dbUser);
 
@@ -37,27 +38,27 @@ public class ProductController {
     }
 
     @PostMapping(value = "/products", consumes = {"application/json"}, produces = {"application/json"})
-    public  ResponseEntity<ProductModel> createProduct(@RequestBody ProductModel productModel){
+    public  ResponseEntity<ProductModel> createProduct(@RequestBody ProductModel productModel) throws BusinessException {
         System.out.println("Create Product");
         productModel =ps.createProduct(productModel);
         ResponseEntity<ProductModel> res = new ResponseEntity<ProductModel>(productModel,HttpStatus.CREATED);
         return res;
     }
     @DeleteMapping(value ="/products/{id}")
-    public ResponseEntity<ProductModel>  deleteProduct(@PathVariable("id") long id) {
+    public ResponseEntity<ProductModel>  deleteProduct(@PathVariable("id") long id) throws BusinessException {
         ProductModel productModel=ps.deleteProduct(id);
         ResponseEntity<ProductModel> res = new ResponseEntity<ProductModel>(productModel,HttpStatus.NO_CONTENT);
-        return  res;
+        return res;
     }
     @GetMapping(value ="/products/search")
     public ResponseEntity<List<ProductModel>> searchProductByDescription(@RequestParam("description")
-                                                                                     String description){
+                                                                                     String description) throws BusinessException{
         List<ProductModel> productList = ps.searchProductByDescription(description);
         ResponseEntity<List<ProductModel>> res = new ResponseEntity<List<ProductModel>>(productList,HttpStatus.OK);
         return res;
     }
     @PutMapping(value ="/products/{id}")
-    public ResponseEntity<ProductModel> updateProduct(@PathVariable("id") long id,@RequestBody ProductModel productModel){
+    public ResponseEntity<ProductModel> updateProduct(@PathVariable("id") long id,@RequestBody ProductModel productModel) throws BusinessException{
         productModel = ps.updateProduct(id,productModel);
         ResponseEntity<ProductModel> res = new ResponseEntity<ProductModel>(productModel,HttpStatus.OK);
         return res;
