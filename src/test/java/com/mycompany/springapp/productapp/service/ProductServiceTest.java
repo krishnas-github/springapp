@@ -48,7 +48,7 @@ public class ProductServiceTest {
     public void test_createProduct() throws BusinessException {
         ProductModel productModel = new ProductModel();
         CategoryModel cm = new CategoryModel();
-        cm.setCategory_Id(1L);
+        cm.setCategoryId(1L);
         productModel.setCategoryModel(cm);
         productModel.setId(1);
         productModel.setPrice(450);
@@ -57,7 +57,7 @@ public class ProductServiceTest {
         pm.add(productModel);
 
         Mockito.when(productCrudRepository.findByDescription(productModel.getDescription())).thenReturn(Optional.empty());
-        Mockito.when(categoryRepository.findById(pm.get(0).getCategoryModel().getCategory_Id())).thenReturn(Optional.of(cm));
+        Mockito.when(categoryRepository.findById(pm.get(0).getCategoryModel().getCategoryId())).thenReturn(Optional.of(cm));
         Mockito.when(productCrudRepository.save(productModel)).thenReturn(productModel);
         ProductModel product = productService.createProduct(productModel);
         Assertions.assertEquals(productModel.getId(),product.getId());

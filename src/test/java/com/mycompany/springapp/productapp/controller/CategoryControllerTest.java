@@ -13,7 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 @ExtendWith(MockitoExtension.class)
-public class CategoryControllerTest {
+        class CategoryControllerTest {
 
     @InjectMocks
     private CategoryController categoryController;
@@ -22,19 +22,19 @@ public class CategoryControllerTest {
     private CategoryService categoryService;
 
     @Test
-    public void test_createCategory_success(){
+     void test_createCategory_success(){
         CategoryModel cm = new CategoryModel();
         cm.setCategoryName("Food");
 
         CategoryModel cm1 = new CategoryModel();
         cm1 = new CategoryModel();
-        cm1.setCategory_Id(1L);
+        cm1.setCategoryId(1L);
         cm1.setCategoryName("Food");
 
         Mockito.when(categoryService.createCategory(cm)).thenReturn(cm1);
         ResponseEntity<CategoryModel> responseEntity = categoryController.createCategory(cm);
-        Assertions.assertEquals(responseEntity.getStatusCode(), HttpStatus.CREATED);
-        Assertions.assertNotNull(responseEntity.getBody().getCategory_Id());
+        Assertions.assertEquals(HttpStatus.CREATED,responseEntity.getStatusCode());
+        Assertions.assertNotNull(responseEntity.getBody().getCategoryId());
 
     }
 

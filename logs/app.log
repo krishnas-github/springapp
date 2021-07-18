@@ -1,21 +1,24 @@
-2021-07-11 14:05:27,203 INFO com.mycompany.springapp.SpringappApplication [main] hello world info
-2021-07-11 14:05:27,288 WARN com.mycompany.springapp.SpringappApplication [main] hello world warn
-2021-07-11 14:05:27,288 ERROR com.mycompany.springapp.SpringappApplication [main] hello world error
-2021-07-11 14:05:31,515 INFO com.mycompany.springapp.SpringappApplication [main] Starting SpringappApplication using Java 1.8.0_291 on KRISHNA with PID 11440 (Y:\Javalearning\springapp\springapp\target\classes started by krishna in Y:\Javalearning\springapp\springapp)
-2021-07-11 14:05:31,515 INFO com.mycompany.springapp.SpringappApplication [main] The following profiles are active: dev
-2021-07-11 14:10:14,656 INFO com.mycompany.springapp.SpringappApplication [main] hello world info
-2021-07-11 14:10:14,663 WARN com.mycompany.springapp.SpringappApplication [main] hello world warn
-2021-07-11 14:10:14,663 ERROR com.mycompany.springapp.SpringappApplication [main] hello world error
-2021-07-11 14:10:16,811 INFO com.mycompany.springapp.SpringappApplication [main] Starting SpringappApplication using Java 1.8.0_291 on KRISHNA with PID 12352 (Y:\Javalearning\springapp\springapp\target\classes started by krishna in Y:\Javalearning\springapp\springapp)
-2021-07-11 14:10:16,814 INFO com.mycompany.springapp.SpringappApplication [main] The following profiles are active: dev
-2021-07-11 14:17:42,305 INFO com.mycompany.springapp.SpringappApplication [main] hello world info
-2021-07-11 14:17:42,312 WARN com.mycompany.springapp.SpringappApplication [main] hello world warn
-2021-07-11 14:17:42,312 ERROR com.mycompany.springapp.SpringappApplication [main] hello world error
-2021-07-11 14:17:44,999 INFO com.mycompany.springapp.SpringappApplication [main] Starting SpringappApplication using Java 1.8.0_291 on KRISHNA with PID 8364 (Y:\Javalearning\springapp\springapp\target\classes started by krishna in Y:\Javalearning\springapp\springapp)
-2021-07-11 14:17:45,001 INFO com.mycompany.springapp.SpringappApplication [main] The following profiles are active: dev
-2021-07-11 14:20:35,257 INFO com.mycompany.springapp.SpringappApplication [main] hello world info
-2021-07-11 14:20:35,267 WARN com.mycompany.springapp.SpringappApplication [main] hello world warn
-2021-07-11 14:20:35,272 ERROR com.mycompany.springapp.SpringappApplication [main] hello world error
-2021-07-11 14:20:37,767 INFO com.mycompany.springapp.SpringappApplication [main] Starting SpringappApplication using Java 1.8.0_291 on KRISHNA with PID 844 (Y:\Javalearning\springapp\springapp\target\classes started by krishna in Y:\Javalearning\springapp\springapp)
-2021-07-11 14:20:37,772 INFO com.mycompany.springapp.SpringappApplication [main] The following profiles are active: dev
-2021-07-11 14:21:06,325 INFO com.mycompany.springapp.SpringappApplication [main] Started SpringappApplication in 30.234 seconds (JVM running for 33.941)
+2021-07-17 15:23:48,262 INFO com.mycompany.springapp.SpringappApplication [main] hello world info
+2021-07-17 15:23:48,286 WARN com.mycompany.springapp.SpringappApplication [main] hello world warn
+2021-07-17 15:23:48,286 ERROR com.mycompany.springapp.SpringappApplication [main] hello world error
+2021-07-17 15:23:52,273 INFO com.mycompany.springapp.SpringappApplication [main] Starting SpringappApplication using Java 1.8.0_291 on KRISHNA with PID 7144 (Y:\Javalearning\springapp\springapp\target\classes started by krishna in Y:\Javalearning\springapp\springapp)
+2021-07-17 15:23:52,276 INFO com.mycompany.springapp.SpringappApplication [main] The following profiles are active: dev
+2021-07-17 15:24:28,060 INFO com.mycompany.springapp.SpringappApplication [main] Started SpringappApplication in 38.631 seconds (JVM running for 44.679)
+2021-07-17 15:29:18,172 INFO com.mycompany.springapp.SpringappApplication [main] hello world info
+2021-07-17 15:29:18,180 WARN com.mycompany.springapp.SpringappApplication [main] hello world warn
+2021-07-17 15:29:18,180 ERROR com.mycompany.springapp.SpringappApplication [main] hello world error
+2021-07-17 15:29:21,046 INFO com.mycompany.springapp.SpringappApplication [main] Starting SpringappApplication using Java 1.8.0_291 on KRISHNA with PID 6904 (Y:\Javalearning\springapp\springapp\target\classes started by krishna in Y:\Javalearning\springapp\springapp)
+2021-07-17 15:29:21,049 INFO com.mycompany.springapp.SpringappApplication [main] The following profiles are active: dev
+2021-07-17 15:29:47,047 INFO com.mycompany.springapp.SpringappApplication [main] Started SpringappApplication in 28.32 seconds (JVM running for 38.474)
+2021-07-17 15:36:35,757 INFO com.mycompany.springapp.SpringappApplication [main] hello world info
+2021-07-17 15:36:35,765 WARN com.mycompany.springapp.SpringappApplication [main] hello world warn
+2021-07-17 15:36:35,765 ERROR com.mycompany.springapp.SpringappApplication [main] hello world error
+2021-07-17 15:36:37,727 INFO com.mycompany.springapp.SpringappApplication [main] Starting SpringappApplication using Java 1.8.0_291 on KRISHNA with PID 8580 (Y:\Javalearning\springapp\springapp\target\classes started by krishna in Y:\Javalearning\springapp\springapp)
+2021-07-17 15:36:37,728 INFO com.mycompany.springapp.SpringappApplication [main] The following profiles are active: dev
+2021-07-17 15:37:04,969 INFO com.mycompany.springapp.SpringappApplication [main] Started SpringappApplication in 28.631 seconds (JVM running for 31.196)
+2021-07-17 15:47:18,388 INFO com.mycompany.springapp.SpringappApplication [main] hello world info
+2021-07-17 15:47:18,396 WARN com.mycompany.springapp.SpringappApplication [main] hello world warn
+2021-07-17 15:47:18,396 ERROR com.mycompany.springapp.SpringappApplication [main] hello world error
+2021-07-17 15:47:20,731 INFO com.mycompany.springapp.SpringappApplication [main] Starting SpringappApplication using Java 1.8.0_291 on KRISHNA with PID 3764 (Y:\Javalearning\springapp\springapp\target\classes started by krishna in Y:\Javalearning\springapp\springapp)
+2021-07-17 15:47:20,733 INFO com.mycompany.springapp.SpringappApplication [main] The following profiles are active: dev
+2021-07-17 15:47:45,971 INFO com.mycompany.springapp.SpringappApplication [main] Started SpringappApplication in 26.876 seconds (JVM running for 29.989)

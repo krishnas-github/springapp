@@ -13,7 +13,7 @@ public class CategoryModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name ="CATEGORY_ID")
-    private Long category_Id;
+    private Long categoryId;
     @ApiModelProperty(
             value = "category_name",
             name = "categoryName",
@@ -27,12 +27,12 @@ public class CategoryModel implements Serializable {
     @JsonIgnore
     private List<ProductModel> productModelList;
 
-    public Long getCategory_Id() {
-        return category_Id;
+    public Long getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategory_Id(Long category_Id) {
-        this.category_Id = category_Id;
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getCategoryName() {

@@ -25,14 +25,12 @@ public class ProductService {
     //public List<ProductModel> getAllProducts(){
     public Iterable<ProductModel> getAllProducts() throws BusinessException {
         //List<ProductModel> productModelList =pr.getAllProducts();
-        Iterable<ProductModel> productModelList = pcr.findAll();
-        if(null!=productModelList){
-            return productModelList;
-        }
-        else{
+        List<ProductModel> productModelList = (List<ProductModel>) pcr.findAll();
+        if(productModelList.isEmpty()){
             BusinessException pce = new BusinessException("The product list is empty","Nothing to display");
             throw pce;
         }
+        return productModelList;
     }
     public ProductModel createProduct(ProductModel productModel) throws BusinessException {
         //productModel = pr.createProduct(productModel);
@@ -41,7 +39,7 @@ public class ProductService {
             BusinessException pce = new BusinessException("This product already exist","Cannot create this product");
             throw pce;
         }
-        Optional<CategoryModel> optCategory = cr.findById(productModel.getCategoryModel().getCategory_Id());
+        Optional<CategoryModel> optCategory = cr.findById(productModel.getCategoryModel().getCategoryId());
         productModel.setCategoryModel(optCategory.get());
         productModel = pcr.save(productModel);
         return productModel;

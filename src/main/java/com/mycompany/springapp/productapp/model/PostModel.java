@@ -1,11 +1,6 @@
 package com.mycompany.springapp.productapp.model;
 
-import org.springframework.core.metrics.StartupStep;
-
-import javax.management.Descriptor;
 import javax.persistence.*;
-import javax.swing.text.html.HTML;
-import javax.xml.crypto.Data;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;

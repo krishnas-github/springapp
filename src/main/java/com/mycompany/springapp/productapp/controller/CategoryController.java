@@ -32,26 +32,23 @@ public class CategoryController {
                                                 example = "categoryId,categoryName",
                                                 required = true) @RequestBody CategoryModel categoryModel){
         categoryModel = cs.createCategory(categoryModel);
-        ResponseEntity<CategoryModel> res = new ResponseEntity<CategoryModel>(categoryModel,HttpStatus.CREATED);
-        return res;
+        return new ResponseEntity<>(categoryModel,HttpStatus.CREATED);
     }
     @DeleteMapping(value = "/category/{id}")
     public ResponseEntity<CategoryModel> deleteCategory(@PathVariable("id") long id){
         CategoryModel categoryModel = cs.deleteCategory(id);
-        ResponseEntity<CategoryModel> res = new ResponseEntity<CategoryModel>(categoryModel,HttpStatus.OK);
-        return res;
+        return new ResponseEntity<>(categoryModel,HttpStatus.OK);
     }
     @GetMapping (value = "/category/search")
     public ResponseEntity<List<CategoryModel>> searchCategory(@RequestParam("categoryName") String categoryName){
         List<CategoryModel> categoryModel = cs.searchCategory(categoryName);
-        ResponseEntity<List<CategoryModel>> res = new ResponseEntity<List<CategoryModel>>(categoryModel,HttpStatus.OK);
-        return res;
+        return new ResponseEntity<List<CategoryModel>>(categoryModel,HttpStatus.OK);
+
     }
     @PutMapping(value = "/category/{id}")
     public ResponseEntity<CategoryModel> updateCategory(@PathVariable("id") long id,@RequestBody CategoryModel categoryModel){
         categoryModel = cs.updateCategory(id,categoryModel);
-        ResponseEntity<CategoryModel> res = new ResponseEntity<CategoryModel>(categoryModel,HttpStatus.OK);
-        return res;
+        return new ResponseEntity<CategoryModel>(categoryModel,HttpStatus.OK);
     }
 
 

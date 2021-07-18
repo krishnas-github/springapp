@@ -2,7 +2,6 @@ package com.mycompany.springapp.productapp.controller;
 
 import com.mycompany.springapp.productapp.model.PostModel;
 import com.mycompany.springapp.productapp.service.PostService;
-import javafx.geometry.Pos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +21,6 @@ public class PostController {
     @PostMapping(value = "/post")
     public ResponseEntity<PostModel> createPost(@RequestBody PostModel postModel){
         postModel = ps.createPost(postModel);
-        ResponseEntity<PostModel> res = new ResponseEntity<PostModel>(postModel,HttpStatus.CREATED);
-        return res;
+        return new ResponseEntity<PostModel>(postModel,HttpStatus.CREATED);
     }
 }

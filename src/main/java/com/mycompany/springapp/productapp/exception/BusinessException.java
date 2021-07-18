@@ -1,12 +1,11 @@
 package com.mycompany.springapp.productapp.exception;
 
 public class BusinessException extends Exception {
-    private String errorMessage;
-    private String errorCode;
-    public BusinessException(){
-        super();
-    }
+    private final String errorMessage;
+    private final String errorCode;
+
     public BusinessException(String errorMessage, String errorCode){
+        super();
         this.errorMessage = errorMessage;
         this.errorCode = errorCode;
     }
@@ -15,15 +14,8 @@ public class BusinessException extends Exception {
         return errorMessage;
     }
 
-    public void setErrorMessage(String errorMessage) {
-        this.errorMessage = errorMessage;
-    }
-
     public String getErrorCode() {
         return errorCode;
     }
 
-    public void setErrorCode(String errorCode) {
-        this.errorCode = errorCode;
-    }
 }

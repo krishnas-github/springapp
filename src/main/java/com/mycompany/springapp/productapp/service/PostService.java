@@ -11,8 +11,7 @@ public class PostService {
     @Autowired
     private PostRepository pr;
     public Iterable<PostModel> getAllPost(){
-        Iterable<PostModel> postModellist = pr.findAll();
-        return postModellist;
+        return pr.findAll();
     }
 
     public PostModel createPost(PostModel postModel){

@@ -3,15 +3,14 @@ package com.mycompany.springapp.productapp.controller;
 import com.mycompany.springapp.productapp.exception.BusinessException;
 import com.mycompany.springapp.productapp.model.ProductModel;
 import com.mycompany.springapp.productapp.service.ProductService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.LinkedList;
 import java.util.List;
 
 @RestController
@@ -23,14 +22,17 @@ public class ProductController {
 
     @Value("${spring.datasource.username}")
     String dbUser;
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProductController.class);
 
     @Autowired
     private ProductService ps;
     @GetMapping(value ="/products")
     //public ResponseEntity<List<ProductModel>> getAllProducts() {
     public  ResponseEntity<Iterable<ProductModel>> getAllProducts () throws BusinessException {
-        System.out.println(dummyField);
-        System.out.println(dbUser);
+        LOGGER.error(dummyField);
+        LOGGER.error(dummyField);
+        //System.out.println(dbUser);
+       // System.out.println(dbUser);
 
        //List<ProductModel> list =ps.getAllProducts();
         Iterable<ProductModel> list =ps.getAllProducts();
@@ -41,8 +43,7 @@ public class ProductController {
     public  ResponseEntity<ProductModel> createProduct(@RequestBody ProductModel productModel) throws BusinessException {
         System.out.println("Create Product");
         productModel =ps.createProduct(productModel);
-        ResponseEntity<ProductModel> res = new ResponseEntity<ProductModel>(productModel,HttpStatus.CREATED);
-        return res;
+        return new ResponseEntity<ProductModel>(productModel,HttpStatus.CREATED);
     }
     @DeleteMapping(value ="/products/{id}")
     public ResponseEntity<ProductModel>  deleteProduct(@PathVariable("id") long id) throws BusinessException {
